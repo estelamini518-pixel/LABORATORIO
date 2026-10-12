@@ -1,0 +1,39 @@
+name: Build Android APK
+
+on:
+workflow_dispatch:
+push:
+branches: [ main, master ]
+
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- name: Descargar el proyecto
+uses: actions/checkout@v4
+
+```
+  - name: Instalar Flutter
+    uses: subosito/flutter-action@v2
+    with:
+      channel: stable
+      cache: true
+
+  - name: Generar estructura Android
+    run: flutter create --platforms=android --project-name escape_del_laboratorio .
+
+  - name: Obtener dependencias
+    run: flutter pub get
+
+  - name: Comprobar código
+    run: flutter analyze
+
+  - name: Compilar APK
+    run: flutter build apk --release
+
+  - name: Publicar APK
+    uses: actions/upload-artifact@v4
+    with:
+      name: Escape-del-Laboratorio-APK
+      path: build/app/outputs/flutter-apk/app-release.apk
+```
