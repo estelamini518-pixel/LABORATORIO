@@ -459,10 +459,10 @@ class GamePainter extends CustomPainter {
     c.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(x+4,y+13,23,22),const Radius.circular(5)),dark);
     c.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(x+3,y+1,24,21),const Radius.circular(8)),green);
     c.drawCircle(Offset(x+10,y+10),3,red);c.drawCircle(Offset(x+20,y+10),3,red);
-    c.drawLine(Offset(x+7,y+35),Offset(x+4,y+39),Paint()..color=green..strokeWidth=5);
-    c.drawLine(Offset(x+23,y+35),Offset(x+26,y+39),Paint()..color=green..strokeWidth=5);
-    c.drawLine(Offset(x+3,y+19),Offset(x-2,y+27),Paint()..color=green..strokeWidth=4);
-    c.drawLine(Offset(x+27,y+19),Offset(x+33,y+25),Paint()..color=green..strokeWidth=4);
+    c.drawLine(Offset(x+7,y+35),Offset(x+4,y+39),Paint()..color=green.color..strokeWidth=5);
+    c.drawLine(Offset(x+23,y+35),Offset(x+26,y+39),Paint()..color=green.color..strokeWidth=5);
+    c.drawLine(Offset(x+3,y+19),Offset(x-2,y+27),Paint()..color=green.color..strokeWidth=4);
+    c.drawLine(Offset(x+27,y+19),Offset(x+33,y+25),Paint()..color=green.color..strokeWidth=4);
   }
   void _drawPlayer(Canvas c,double x,double y,double inv) {
     if(inv>0 && inv.toInt()%8<4)return;
